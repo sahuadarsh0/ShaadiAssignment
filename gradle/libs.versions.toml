@@ -1,9 +1,6 @@
 [versions]
 agp = "8.3.0-alpha04"
 glide = "4.13.2"
-hiltAndroid = "2.47"
-hiltAndroidCompiler = "2.47"
-hiltCompiler = "1.0.0"
 kotlin = "1.9.0"
 core-ktx = "1.12.0"
 junit = "4.13.2"
@@ -13,9 +10,8 @@ appcompat = "1.6.1"
 kotlinxCoroutinesAndroid = "1.6.4"
 material = "1.11.0-alpha02"
 constraintlayout = "2.1.4"
-hilt = "2.48"
+hiltAndroid = "2.48"
 navigationFragmentKtx = "2.7.2"
-okHttp = "5.0.0-alpha.2"
 retrofit = "2.9.0"
 roomVersion = "2.5.2"
 loggingInterceptor = "5.0.0-alpha.2"
@@ -29,8 +25,11 @@ espresso-core = { group = "androidx.test.espresso", name = "espresso-core", vers
 appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
-dagger-hilt-android-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hiltAndroidCompiler" }
+
+hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "hiltAndroid" }
+dagger-hilt-android-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hiltAndroid" }
 hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hiltAndroid" }
+
 androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "roomVersion" }
 androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "roomVersion" }
 androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "roomVersion" }
@@ -56,5 +55,5 @@ glide-compiler = { module = "com.github.bumptech.glide:compiler", version.ref = 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
 kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
-hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
+hilt = { id = "com.google.dagger.hilt.android", version.ref = "hiltAndroid" }
 
