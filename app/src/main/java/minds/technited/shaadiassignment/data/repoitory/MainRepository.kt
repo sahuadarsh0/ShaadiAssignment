@@ -10,7 +10,6 @@ class MainRepository @Inject constructor(
     private val localDataSource: ProfilesDao
 ) {
 
-
     fun getProfiles() = performGetOperation(databaseQuery = { localDataSource.getAll() },
         networkCall = { remoteDataSource.getProfiles() },
         saveCallResult = { it.results?.let { list -> localDataSource.insertAll(list) } })

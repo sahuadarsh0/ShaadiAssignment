@@ -19,9 +19,9 @@ object RoomModule {
     fun provideDatabase(@ApplicationContext appContext: Context) = AppDatabase.getDatabase(appContext)
 
 
-//    @Singleton
-//    @Provides
-//    fun provideMatchesDao(db : AppDatabase) = db.matchesDao()
+    @Singleton
+    @Provides
+    fun provideProfilesDao(db : AppDatabase) = db.profilesDao()
 
 
 

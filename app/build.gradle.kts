@@ -89,7 +89,7 @@ dependencies {
 
     // Other Library
     implementation (libs.glide)
-    kapt (libs.glide.compiler)
+    ksp (libs.glide.compiler)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
