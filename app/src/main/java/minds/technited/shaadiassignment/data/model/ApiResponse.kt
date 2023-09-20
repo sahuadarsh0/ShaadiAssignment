@@ -2,6 +2,7 @@ package minds.technited.shaadiassignment.data.model
 
 
 import android.os.Parcelable
+import androidx.room.Entity
 import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 
@@ -10,7 +11,7 @@ data class ApiResponse(
     @SerializedName("info")
     val info: Info? = null,
     @SerializedName("results")
-    val results: List<Profiles?>? = null
+    val results: List<Profile?>? = null
 ) : Parcelable
 
 @Parcelize
@@ -25,8 +26,10 @@ data class Info(
     val version: String? = null
 ) : Parcelable
 
+
+@Entity
 @Parcelize
-data class Profiles(
+data class Profile(
     @SerializedName("cell")
     val cell: String? = null,
     @SerializedName("dob")

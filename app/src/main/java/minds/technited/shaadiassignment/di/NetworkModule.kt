@@ -6,6 +6,8 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import minds.technited.shaadiassignment.BuildConfig
+import minds.technited.shaadiassignment.data.remote.ApiService
+import minds.technited.shaadiassignment.data.remote.RemoteDataSource
 import minds.technited.shaadiassignment.utils.Constants
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -46,6 +48,16 @@ object NetworkModule {
     @Provides
     fun provideRetrofit(okHttpClient: OkHttpClient, gsonConverterFactory: GsonConverterFactory, BASE_URL: String): Retrofit =
         Retrofit.Builder().addConverterFactory(gsonConverterFactory).baseUrl(BASE_URL).client(okHttpClient).build()
+
+
+    @Provides
+    @Singleton
+    fun provideApiService(retrofit: Retrofit): ApiService = retrofit.create(ApiService::class.java)
+
+
+    @Singleton
+    @Provides
+    fun provideRemoteDataSource(apiService: ApiService) = RemoteDataSource(apiService)
 
 
 }
