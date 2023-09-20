@@ -13,15 +13,16 @@ interface ProfilesDao {
     @Query("SELECT * FROM Profile")
     fun getAll(): LiveData<List<Profile>>
 
-    @Query("SELECT * FROM Profile where id IN (:ids)")
-    suspend fun getAll(ids: List<Long>): List<Profile>
-
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertAll(items: List<Profile?>): List<Long>
+    suspend fun insertAll(items: List<Profile?>)
 
 }
 
 //interface MemberDao {
+//
+//
+//@Query("SELECT * FROM Profile where id IN (:ids)")
+//suspend fun getAll(ids: List<Long>): List<Profile>
 //
 //    @Insert
 //    suspend fun insert(member: Member)

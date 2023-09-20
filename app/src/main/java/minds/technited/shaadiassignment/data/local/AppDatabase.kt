@@ -4,13 +4,29 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
+import minds.technited.shaadiassignment.data.local.converters.DOBConverter
+import minds.technited.shaadiassignment.data.local.converters.IdConverter
+import minds.technited.shaadiassignment.data.local.converters.LocationConverter
+import minds.technited.shaadiassignment.data.local.converters.LoginConverter
+import minds.technited.shaadiassignment.data.local.converters.NameConverter
+import minds.technited.shaadiassignment.data.local.converters.PictureConverter
+import minds.technited.shaadiassignment.data.local.converters.RegisteredConverter
 import minds.technited.shaadiassignment.data.local.dao.ProfilesDao
 import minds.technited.shaadiassignment.data.model.Profile
 import minds.technited.shaadiassignment.utils.Constants
 
 
 @Database(entities = [Profile::class], version = 1, exportSchema = false)
-//@TypeConverters(abc::class)
+@TypeConverters(
+    DOBConverter::class,
+    IdConverter::class,
+    LocationConverter::class,
+    LoginConverter::class,
+    NameConverter::class,
+    PictureConverter::class,
+    RegisteredConverter::class,
+)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun profilesDao(): ProfilesDao

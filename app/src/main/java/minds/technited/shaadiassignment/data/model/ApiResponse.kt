@@ -3,160 +3,164 @@ package minds.technited.shaadiassignment.data.model
 
 import android.os.Parcelable
 import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class ApiResponse(
     @SerializedName("info")
-    val info: Info? = null,
+    var info: Info? = null,
     @SerializedName("results")
-    val results: List<Profile?>? = null
+    var results: List<Profile?>? = null
 ) : Parcelable
 
 @Parcelize
 data class Info(
     @SerializedName("page")
-    val page: Int? = null,
+    var page: Int? = null,
     @SerializedName("results")
-    val results: Int? = null,
+    var results: Int? = null,
     @SerializedName("seed")
-    val seed: String? = null,
+    var seed: String? = null,
     @SerializedName("version")
-    val version: String? = null
+    var version: String? = null
 ) : Parcelable
 
 
-@Entity
+@Entity(tableName = "Profile")
 @Parcelize
 data class Profile(
+
+    @PrimaryKey(autoGenerate = true)
+    var profileId : Int = 0,
     @SerializedName("cell")
-    val cell: String? = null,
+    var cell: String? = null,
     @SerializedName("dob")
-    val dob: Dob? = null,
+    var dob: Dob? = null,
     @SerializedName("email")
-    val email: String? = null,
+    var email: String? = null,
     @SerializedName("gender")
-    val gender: String? = null,
+    var gender: String? = null,
     @SerializedName("id")
-    val id: Id? = null,
+    var id: Id? = null,
     @SerializedName("location")
-    val location: Location? = null,
+    var location: Location? = null,
     @SerializedName("login")
-    val login: Login? = null,
+    var login: Login? = null,
     @SerializedName("name")
-    val name: Name? = null,
+    var name: Name? = null,
     @SerializedName("nat")
-    val nat: String? = null,
+    var nat: String? = null,
     @SerializedName("phone")
-    val phone: String? = null,
+    var phone: String? = null,
     @SerializedName("picture")
-    val picture: Picture? = null,
+    var picture: Picture? = null,
     @SerializedName("registered")
-    val registered: Registered? = null
+    var registered: Registered? = null
 ) : Parcelable
 
 @Parcelize
 data class Dob(
     @SerializedName("age")
-    val age: Int? = null,
+    var age: Int? = null,
     @SerializedName("date")
-    val date: String? = null
+    var date: String? = null
 ) : Parcelable
 
 @Parcelize
 data class Id(
     @SerializedName("name")
-    val name: String? = null,
-    @SerializedName("value")
-    val value: String? = null
+    var name: String? = null,
+    @SerializedName("varue")
+    var varue: String? = null
 ) : Parcelable
 
 @Parcelize
 data class Location(
     @SerializedName("city")
-    val city: String? = null,
+    var city: String? = null,
     @SerializedName("coordinates")
-    val coordinates: Coordinates? = null,
+    var coordinates: Coordinates? = null,
     @SerializedName("country")
-    val country: String? = null,
+    var country: String? = null,
     @SerializedName("postcode")
-    val postcode: String? = null,
+    var postcode: String? = null,
     @SerializedName("state")
-    val state: String? = null,
+    var state: String? = null,
     @SerializedName("street")
-    val street: Street? = null,
+    var street: Street? = null,
     @SerializedName("timezone")
-    val timezone: Timezone? = null
+    var timezone: Timezone? = null
 ) : Parcelable
 
 @Parcelize
 data class Coordinates(
     @SerializedName("latitude")
-    val latitude: String? = null,
+    var latitude: String? = null,
     @SerializedName("longitude")
-    val longitude: String? = null
+    var longitude: String? = null
 ) : Parcelable
 
 @Parcelize
 data class Street(
     @SerializedName("name")
-    val name: String? = null,
+    var name: String? = null,
     @SerializedName("number")
-    val number: Int? = null
+    var number: Int? = null
 ) : Parcelable
 
 @Parcelize
 data class Timezone(
     @SerializedName("description")
-    val description: String? = null,
+    var description: String? = null,
     @SerializedName("offset")
-    val offset: String? = null
+    var offset: String? = null
 ) : Parcelable
 
 
 @Parcelize
 data class Login(
     @SerializedName("md5")
-    val md5: String? = null,
+    var md5: String? = null,
     @SerializedName("password")
-    val password: String? = null,
+    var password: String? = null,
     @SerializedName("salt")
-    val salt: String? = null,
+    var salt: String? = null,
     @SerializedName("sha1")
-    val sha1: String? = null,
+    var sha1: String? = null,
     @SerializedName("sha256")
-    val sha256: String? = null,
+    var sha256: String? = null,
     @SerializedName("username")
-    val username: String? = null,
+    var username: String? = null,
     @SerializedName("uuid")
-    val uuid: String? = null
+    var uuid: String? = null
 ) : Parcelable
 
 @Parcelize
 data class Name(
     @SerializedName("first")
-    val first: String? = null,
+    var first: String? = null,
     @SerializedName("last")
-    val last: String? = null,
+    var last: String? = null,
     @SerializedName("title")
-    val title: String? = null
+    var title: String? = null
 ) : Parcelable
 
 @Parcelize
 data class Picture(
     @SerializedName("large")
-    val large: String? = null,
+    var large: String? = null,
     @SerializedName("medium")
-    val medium: String? = null,
+    var medium: String? = null,
     @SerializedName("thumbnail")
-    val thumbnail: String? = null
+    var thumbnail: String? = null
 ) : Parcelable
 
 @Parcelize
 data class Registered(
     @SerializedName("age")
-    val age: Int? = null,
+    var age: Int? = null,
     @SerializedName("date")
-    val date: String? = null
+    var date: String? = null
 ) : Parcelable
