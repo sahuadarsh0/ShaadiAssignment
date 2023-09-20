@@ -21,18 +21,3 @@ interface ProfilesDao {
     suspend fun update(profile: Profile)
 
 }
-
-//
-//    @Insert
-//    suspend fun insert(member: Member)
-//
-//    @Update
-//    suspend fun update(member: Member)
-//
-//    @Query("SELECT * FROM member ORDER BY id DESC")
-//    fun getAll(): LiveData<List<Member>>
-//
-//
-//    @Query("DELETE FROM member")
-//    suspend fun deleteAll()
-//}

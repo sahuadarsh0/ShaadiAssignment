@@ -27,9 +27,14 @@ class MainActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
 
-        binding.recyclerProfiles.adapter = profilesAdapter
+        setUpRecyclerView()
         setUpObservers()
 
+    }
+
+    private fun setUpRecyclerView() {
+        binding.progressBar.visibility = View.VISIBLE
+        binding.recyclerProfiles.adapter = profilesAdapter
     }
 
     private fun setUpObservers() {
@@ -37,39 +42,44 @@ class MainActivity : AppCompatActivity() {
         mainViewModel.profiles.observe(this) {
             when (it.status) {
                 Resource.Status.LOADING -> {
-
+                    binding.progressBar.visibility = View.VISIBLE
                 }
 
                 Resource.Status.SUCCESS -> {
                     if (it.data.isNullOrEmpty()) {
                         showError()
                     } else {
-                        binding.recyclerProfiles.visibility = View.VISIBLE
-                        profilesAdapter.submitList(it.data)
+                        showSuccess(it.data)
                     }
 
                 }
 
                 Resource.Status.ERROR -> {
-                    if (it.data.isNullOrEmpty()) {
-                        showError()
-                    }
+                    showError()
                 }
             }
         }
     }
 
+    private fun showSuccess(data: List<Profile>?) {
+        binding.recyclerProfiles.visibility = View.VISIBLE
+        profilesAdapter.submitList(data)
+        binding.progressBar.visibility = View.GONE
+        binding.noData.visibility = View.GONE
+    }
+
     private fun showError() {
         binding.noData.visibility = View.VISIBLE
         binding.recyclerProfiles.visibility = View.GONE
+        binding.progressBar.visibility = View.GONE
     }
 
 
     private fun onItemClicked(profile: Profile, accept: Boolean) {
 
-        when(accept){
-            true ->  profile.match = Match.ACCEPTED
-            false ->  profile.match = Match.DECLINED
+        when (accept) {
+            true -> profile.match = Match.ACCEPTED
+            false -> profile.match = Match.DECLINED
         }
         mainViewModel.updateProfile(profile)
 

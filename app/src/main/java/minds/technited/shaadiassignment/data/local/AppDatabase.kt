@@ -8,10 +8,8 @@ import androidx.room.TypeConverters
 import minds.technited.shaadiassignment.data.local.converters.DOBConverter
 import minds.technited.shaadiassignment.data.local.converters.IdConverter
 import minds.technited.shaadiassignment.data.local.converters.LocationConverter
-import minds.technited.shaadiassignment.data.local.converters.LoginConverter
 import minds.technited.shaadiassignment.data.local.converters.NameConverter
 import minds.technited.shaadiassignment.data.local.converters.PictureConverter
-import minds.technited.shaadiassignment.data.local.converters.RegisteredConverter
 import minds.technited.shaadiassignment.data.local.dao.ProfilesDao
 import minds.technited.shaadiassignment.data.model.Profile
 import minds.technited.shaadiassignment.utils.Constants
@@ -22,10 +20,8 @@ import minds.technited.shaadiassignment.utils.Constants
     DOBConverter::class,
     IdConverter::class,
     LocationConverter::class,
-    LoginConverter::class,
     NameConverter::class,
-    PictureConverter::class,
-    RegisteredConverter::class,
+    PictureConverter::class
 )
 abstract class AppDatabase : RoomDatabase() {
 

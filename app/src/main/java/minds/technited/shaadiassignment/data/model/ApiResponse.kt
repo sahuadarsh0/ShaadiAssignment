@@ -47,8 +47,6 @@ data class Profile(
     var id: Id? = null,
     @SerializedName("location")
     var location: Location? = null,
-    @SerializedName("login")
-    var login: Login? = null,
     @SerializedName("name")
     var name: Name? = null,
     @SerializedName("nat")
@@ -57,8 +55,6 @@ data class Profile(
     var phone: String? = null,
     @SerializedName("picture")
     var picture: Picture? = null,
-    @SerializedName("registered")
-    var registered: Registered? = null,
     var match: String = Match.PENDING
 ) : Parcelable
 
@@ -82,8 +78,6 @@ data class Id(
 data class Location(
     @SerializedName("city")
     var city: String? = null,
-    @SerializedName("coordinates")
-    var coordinates: Coordinates? = null,
     @SerializedName("country")
     var country: String? = null,
     @SerializedName("postcode")
@@ -91,17 +85,7 @@ data class Location(
     @SerializedName("state")
     var state: String? = null,
     @SerializedName("street")
-    var street: Street? = null,
-    @SerializedName("timezone")
-    var timezone: Timezone? = null
-) : Parcelable
-
-@Parcelize
-data class Coordinates(
-    @SerializedName("latitude")
-    var latitude: String? = null,
-    @SerializedName("longitude")
-    var longitude: String? = null
+    var street: Street? = null
 ) : Parcelable
 
 @Parcelize
@@ -112,32 +96,6 @@ data class Street(
     var number: Int? = null
 ) : Parcelable
 
-@Parcelize
-data class Timezone(
-    @SerializedName("description")
-    var description: String? = null,
-    @SerializedName("offset")
-    var offset: String? = null
-) : Parcelable
-
-
-@Parcelize
-data class Login(
-    @SerializedName("md5")
-    var md5: String? = null,
-    @SerializedName("password")
-    var password: String? = null,
-    @SerializedName("salt")
-    var salt: String? = null,
-    @SerializedName("sha1")
-    var sha1: String? = null,
-    @SerializedName("sha256")
-    var sha256: String? = null,
-    @SerializedName("username")
-    var username: String? = null,
-    @SerializedName("uuid")
-    var uuid: String? = null
-) : Parcelable
 
 @Parcelize
 data class Name(
@@ -157,12 +115,4 @@ data class Picture(
     var medium: String? = null,
     @SerializedName("thumbnail")
     var thumbnail: String? = null
-) : Parcelable
-
-@Parcelize
-data class Registered(
-    @SerializedName("age")
-    var age: Int? = null,
-    @SerializedName("date")
-    var date: String? = null
 ) : Parcelable
