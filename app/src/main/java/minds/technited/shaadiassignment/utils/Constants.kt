@@ -5,7 +5,7 @@ object Constants {
     const val BASE_URL = "https://randomuser.me/"
 }
 
-object INVITATION_STATUS {
+object Match {
     const val PENDING = "pending"
     const val ACCEPTED = "accepted"
     const val DECLINED = "declined"

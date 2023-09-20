@@ -5,6 +5,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import androidx.room.Update
 import minds.technited.shaadiassignment.data.model.Profile
 
 @Dao
@@ -16,13 +17,11 @@ interface ProfilesDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAll(items: List<Profile?>)
 
+    @Update
+    suspend fun update(profile: Profile)
+
 }
 
-//interface MemberDao {
-//
-//
-//@Query("SELECT * FROM Profile where id IN (:ids)")
-//suspend fun getAll(ids: List<Long>): List<Profile>
 //
 //    @Insert
 //    suspend fun insert(member: Member)
@@ -33,8 +32,6 @@ interface ProfilesDao {
 //    @Query("SELECT * FROM member ORDER BY id DESC")
 //    fun getAll(): LiveData<List<Member>>
 //
-//    @Query("SELECT * FROM member ORDER BY id LIMIT 1")
-//    suspend fun getOne(): Member?
 //
 //    @Query("DELETE FROM member")
 //    suspend fun deleteAll()

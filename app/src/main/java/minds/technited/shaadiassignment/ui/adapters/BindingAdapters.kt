@@ -5,6 +5,7 @@ import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import minds.technited.shaadiassignment.R
+import minds.technited.shaadiassignment.data.model.Location
 import minds.technited.shaadiassignment.data.model.Name
 
 object BindingAdapters {
@@ -22,6 +23,21 @@ object BindingAdapters {
     @JvmStatic
     fun setFullName(view: TextView, name: Name?) {
         val output = "${name?.first}  ${name?.last} "
+        view.text = output
+    }
+
+    @BindingAdapter("android:setAge")
+    @JvmStatic
+    fun setAge(view: TextView, age: Int?) {
+        val output = "I am $age yrs old"
+        view.text = output
+    }
+
+
+    @BindingAdapter("android:setAddress")
+    @JvmStatic
+    fun setAddress(view: TextView, location: Location?) {
+        val output = "${location?.street?.name},${location?.city} ${location?.state} "
         view.text = output
     }
 

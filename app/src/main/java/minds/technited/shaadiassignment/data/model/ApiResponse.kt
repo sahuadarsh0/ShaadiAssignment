@@ -6,6 +6,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
+import minds.technited.shaadiassignment.utils.Match
 
 @Parcelize
 data class ApiResponse(
@@ -33,7 +34,7 @@ data class Info(
 data class Profile(
 
     @PrimaryKey(autoGenerate = true)
-    var profileId : Int = 0,
+    var profileId: Int = 0,
     @SerializedName("cell")
     var cell: String? = null,
     @SerializedName("dob")
@@ -57,7 +58,8 @@ data class Profile(
     @SerializedName("picture")
     var picture: Picture? = null,
     @SerializedName("registered")
-    var registered: Registered? = null
+    var registered: Registered? = null,
+    var match: String = Match.PENDING
 ) : Parcelable
 
 @Parcelize
