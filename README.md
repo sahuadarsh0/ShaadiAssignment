@@ -8,7 +8,7 @@ and display their decisions persistently, even in offline mode.
 
 
 
-Download the App  [apk/app.apk]
+Download the  ![App](apk/assignment.apk)
 
 
 ![1st](Screenshots/1.png)  ![2nd](Screenshots/2.png)  ![3rd](Screenshots/3.png)
