@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Shaadi App</string>
+    <string name="app_name">Shaadi</string>
     <string name="reject">Reject</string>
     <string name="accept">Accept</string>
     <string name="accepted">Accepted</string>

@@ -6,7 +6,7 @@ object Constants {
 }
 
 object Match {
-    const val PENDING = "pending"
-    const val ACCEPTED = "accepted"
-    const val DECLINED = "declined"
+    const val PENDING = "PENDING"
+    const val ACCEPTED = "ACCEPTED"
+    const val DECLINED = "DECLINED"
 }
