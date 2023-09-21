@@ -11,6 +11,7 @@ import com.rommansabbir.networkx.extension.isInternetConnectedLiveData
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import minds.technited.shaadiassignment.R
 import minds.technited.shaadiassignment.data.local.dao.ProfilesDao
 import minds.technited.shaadiassignment.data.model.Profile
@@ -38,28 +39,34 @@ class MainActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
 
-        checkLocalStorage()
         setUpRecyclerView()
         checkInternet()
 
+    }
+
+
+    private fun checkInternet() {
+        isInternetConnectedLiveData.observe(this) {
+            lifecycleScope.launch {
+                Log.d("asa", "checkInternet: $it")
+                if (it) {
+                    setUpObservers()
+                } else {
+                    checkLocalStorage()
+                }
+            }
+        }
     }
 
     private fun checkLocalStorage() {
 
         lifecycleScope.launch(Dispatchers.IO) {
             val count = localDataSource.getCount()
-//            if (count == null || count == 0)
-//                setUpObservers()
-        }
-    }
 
-    private fun checkInternet() {
-        isInternetConnectedLiveData.observe(this) {
-            lifecycleScope.launch {
-                Log.d("asa", "checkInternet: $it")
-                if (it){
+            withContext(Dispatchers.Main) {
+                if (count != null && count > 0) {
                     setUpObservers()
-                }else{
+                } else {
                     showError(com.rommansabbir.networkx.R.string.no_internet)
                 }
             }
@@ -102,8 +109,8 @@ class MainActivity : AppCompatActivity() {
         binding.noData.visibility = View.GONE
     }
 
-    private fun showError(msg : Int?=null) {
-        binding.noData.text =  resources.getString(msg ?: R.string.no_profiles_found)
+    private fun showError(msg: Int? = null) {
+        binding.noData.text = resources.getString(msg ?: R.string.no_profiles_found)
         binding.noData.visibility = View.VISIBLE
         binding.recyclerProfiles.visibility = View.GONE
         binding.progressBar.visibility = View.GONE
