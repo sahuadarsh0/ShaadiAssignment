@@ -90,10 +90,16 @@ dependencies {
     // Other Library
     implementation (libs.glide)
     ksp (libs.glide.compiler)
+    implementation (libs.networkX)
 
     testImplementation(libs.junit)
+    testImplementation(libs.retrofit.mockwebserver)
+    testImplementation (libs.kotlinx.coroutines.test)
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.espresso.core)
+
+    testImplementation (libs.mockito.core)
+    androidTestImplementation (libs.mockito.android)
 }
 
 kapt {

@@ -14,6 +14,9 @@ interface ProfilesDao {
     @Query("SELECT * FROM Profile")
     fun getAll(): LiveData<List<Profile>>
 
+    @Query("SELECT count(*) FROM Profile")
+    fun getCount(): Int?
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAll(items: List<Profile?>)
 
